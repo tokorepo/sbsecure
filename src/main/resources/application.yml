@@ -5,18 +5,19 @@ spring:
     url: jdbc:postgresql://0.0.0.0:5432/sbsecure_db
     username: sbsecure
     password: 12345678
-    driver-class-name: org.postgresql.Driver
-    jpa:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
       hibernate:
-        ddl-auto: update
-      properties:
-        hibernate:
-          dialect: org.hibernate.dialect.PostgreSQLDialect
-    data:
-      redis:
-        host: 0.0.0.0
-        port: 6379
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  data:
+    redis:
+      host: 0.0.0.0
+      port: 6379
 
-  jwt:
-    secret: a82cfce174663e5567c8a0e0660e7caca85c26ed54e21883588d7d4e5d7f0600
-    expireMs: 86400000 # 24 hours
+jwt:
+  secret: a82cfce174663e5567c8a0e0660e7caca85c26ed54e21883588d7d4e5d7f0600
+  expireMs: 86400000 # 24 hours
